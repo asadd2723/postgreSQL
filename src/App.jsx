@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import GetData from './components/GetData';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <textarea className='rounded-lg textarea' placeholder='Enter your Message' name='message' required></textarea>
             <button type='submit' className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover'>Send Message</button>
           </form>
+          <GetData />
     </>
   )
 }
