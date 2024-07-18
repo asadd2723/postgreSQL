@@ -15,7 +15,7 @@ export default async function handler(request, response) {
     VALUES (${name}, ${email},${password}) 
     RETURNING *;`;
 
-    res.status(200).json({ message: 'Data added successfully', data: result.rows });
+    return response.status(200).json({ message: 'Data added successfully', data: result.rows });
   } catch (error) {
     return response.status(500).json({ error: error.message });
   } 

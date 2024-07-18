@@ -13,7 +13,7 @@ function SignUp() {
     console.log(formData)
     try {
       await fetch('/api/add-table',{
-        method: 'POST',
+        method:'POST',
         headers: {
           'Content-Type': 'application/json'
         },
