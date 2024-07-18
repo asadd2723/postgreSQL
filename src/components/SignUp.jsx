@@ -20,7 +20,7 @@ function SignUp() {
         body: JSON.stringify(formData)
       })
       .then((res)=>res.json())
-      .then((data)=>setResponseDatabase(data.error))
+      .then((data)=>setResponseDatabase(data.error || data.message))
     } catch (error) {
       console.log("Error:", error)
     }
