@@ -20,7 +20,7 @@ function SignUp() {
         body: JSON.stringify(formData)
       })
       .then((res)=>res.json())
-      .then((data)=>console.log(data))
+      .then((data)=>setResponseDatabase(data.error))
     } catch (error) {
       console.log("Error:", error)
     }
@@ -35,7 +35,7 @@ function SignUp() {
         <input type="password" className="input rounded-lg" placeholder='Enter your Password' name='password' required/>
         <button type='submit' className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover'>Send Message</button>
       </form>
-      {responseDatabase}
+      <p className='text-2xl via-black'>{responseDatabase}</p>
     </>
   )
 }
