@@ -11,7 +11,7 @@ export default async function handler(request, response) {
       return response.status(400).json({ error: 'Missing required fields: name, email, password' });
     }
     const result = await sql
-    `INSERT INTO asad (name, email, password) 
+    `INSERT INTO users (name, email, password) 
     VALUES (${name}, ${email},${password}) 
     RETURNING *;`;
 
