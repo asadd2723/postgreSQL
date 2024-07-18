@@ -10,6 +10,14 @@ export default async function handler(request, response) {
     if (!name || !email || !password) {
       return response.status(400).json({ error: 'Missing required fields: name, email, password' });
     }
+    //check email which already added in database
+
+    const checkEmail = await sql `
+      SELECT * FROM users WHERE email = ${email};
+    `;
+    if (checkEmail.rowCount>0){
+      return response.status(409).json({ error: 'User with this email already exists' });
+    }
     const result = await sql
     `INSERT INTO users (name, email, password) 
     VALUES (${name}, ${email},${password}) 

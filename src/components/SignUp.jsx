@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function SignUp() {
-
+  const [responseDatabase, setResponseDatabase] = useState(null)
   const handleSignUp = async (e)=>{
     e.preventDefault()
     const form = e.target
@@ -20,15 +20,7 @@ function SignUp() {
         body: JSON.stringify(formData)
       })
       .then((res)=>res.json())
-      .then((data)=>{
-        if (data.message === 'Data added successfully') {
-          console.log(data.message);
-          // Handle success (e.g., display a success message on the webpage)
-        } else {
-          console.error(data.message);
-          // Handle error (e.g., display an error message on the webpage)
-        }
-      })
+      .then((data)=>setResponseDatabase(data))
     } catch (error) {
       console.log("Error:", error)
     }
@@ -43,6 +35,7 @@ function SignUp() {
         <input type="password" className="input rounded-lg" placeholder='Enter your Password' name='password' required/>
         <button type='submit' className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover'>Send Message</button>
       </form>
+      {responseDatabase}
     </>
   )
 }
