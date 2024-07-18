@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 function SignUp() {
-  const [responseDatabase, setResponseDatabase] = useState(null)
+  const [signIn, setSignIn] = useState(false)
+  const [error, setError] = useState(null)
   const handleSignUp = async (e)=>{
     e.preventDefault()
     const form = e.target
@@ -20,10 +21,19 @@ function SignUp() {
         body: JSON.stringify(formData)
       })
       .then((res)=>res.json())
-      .then((data)=>setResponseDatabase(data.error || data.message))
+      .then((data)=>{
+        if(data.message){
+          return setSignIn(true)
+        }else{
+          setError(data.error)
+        }
+      })
     } catch (error) {
       console.log("Error:", error)
     }
+  }
+  if(signIn){
+    return <p className='text-4xl text-red-800'>Welcome to login page</p>
   }
   return (
     <>
@@ -35,7 +45,7 @@ function SignUp() {
         <input type="password" className="input rounded-lg" placeholder='Enter your Password' name='password' required/>
         <button type='submit' className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover'>Send Message</button>
       </form>
-      <p className='text-2xl via-black'>{responseDatabase}</p>
+      <p className='text-2xl text-red-950'>{error}</p>
     </>
   )
 }
