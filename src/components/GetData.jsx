@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 function GetData() {
   const [login, setLogin] = useState(false)
+  const [error, setError] = useState('')
   const loginHandle = async (e)=>{
     e.preventDefault()
     const form = e.target
@@ -23,6 +24,7 @@ function GetData() {
           return setLogin({true:true,data:data.user})
         }else{
           console.log(data.error)
+          setError(data.error)
         }
       })
     } catch (error) {
@@ -39,6 +41,7 @@ function GetData() {
         <input type="password" placeholder='Enter your Password' className='input rounded-lg' name='password' />
         <button className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover w-40'>Login</button>
       </form>
+      <p>{error}</p>
     </>
   )
 }
