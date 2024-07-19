@@ -33,10 +33,10 @@ function GetData() {
     }
   }
   if(login.true){
-    return <>
-      <h1>welcome, {login.data.name}</h1>
-      <h1>{login.data.email}</h1>
-    </>
+    return <div className='text-gray-950'>
+      <h1 className='text-4xl'>welcome, {login.data.name}</h1>
+      <h1 className='text-2xl'>{login.data.email}</h1>
+    </div>
   }
   return (
     <>
