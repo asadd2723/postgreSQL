@@ -22,6 +22,7 @@ export default async function handler(request, response) {
 
     // convert password into hash
     const hash = await bcrypt.hash( password, 10)
+    
     const result = await sql
     `INSERT INTO users (name, email, password) 
     VALUES (${name}, ${email},${hash}) 
