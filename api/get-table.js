@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+import bcrypt from 'bcrypt'
 
 export default async function(request, response){
   if(request.method!=="POST"){
@@ -24,6 +25,7 @@ export default async function(request, response){
     // Verify the password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     console.log(isPasswordValid);
+
     if (!isPasswordValid) {
       return response.status(401).json({ error: 'incorrect password' });
     }

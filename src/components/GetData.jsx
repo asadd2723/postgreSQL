@@ -35,8 +35,8 @@ function GetData() {
   return (
     <>
       <form onSubmit={loginHandle} className='max-w-[400px] flex items-center flex-col gap-3'>
-        <input type="email" className='input rounded-lg' name='email' />
-        <input type="password" className='input rounded-lg' name='password' />
+        <input type="email" placeholder='Enter your Email' className='input rounded-lg' name='email' />
+        <input type="password" placeholder='Enter your Password' className='input rounded-lg' name='password' />
         <button className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover w-40'>Login</button>
       </form>
     </>
