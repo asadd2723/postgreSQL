@@ -22,9 +22,8 @@ function SignUp() {
       })
       .then((res)=>res.json())
       .then((data)=>{
-        console.log(data)
         if(data.message){
-          return setSignIn(true)
+          return setSignIn({true:true,data: data.data})
         }else{
           setError(data.error)
         }
@@ -33,8 +32,8 @@ function SignUp() {
       console.log("Error:", error)
     }
   }
-  if(signIn){
-    return <p className='text-4xl text-red-800'>Welcome to login page</p>
+  if(signIn.true){
+    return <p className='text-4xl text-red-800'>Welcome to {signIn.data}</p>
   }
   return (
     <>
