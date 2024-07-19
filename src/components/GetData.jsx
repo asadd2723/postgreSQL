@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 function GetData() {
   const [login, setLogin] = useState(false)
   const [error, setError] = useState('')
+  console.log(login)
   const loginHandle = async (e)=>{
     e.preventDefault()
     const form = e.target
@@ -32,7 +33,7 @@ function GetData() {
     }
   }
   if(login.true){
-    return <p>{login.name}</p>
+    return <p>welcome</p>
   }
   return (
     <>
