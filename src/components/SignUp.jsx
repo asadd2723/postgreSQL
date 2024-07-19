@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 function SignUp() {
   const [signIn, setSignIn] = useState(false)
   const [error, setError] = useState(null)
+
   const handleSignUp = async (e)=>{
     e.preventDefault()
     const form = e.target
@@ -32,9 +33,11 @@ function SignUp() {
       console.log("Error:", error)
     }
   }
+
   if(signIn.true){
     return <p className='text-4xl text-red-800'>Welcome to {signIn.data}</p>
   }
+  
   return (
     <>
       <form name='contact-us' onSubmit={handleSignUp} className='p-8 space-y-8 w-full max-w-[450px]' method='POST' >
