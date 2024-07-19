@@ -33,7 +33,10 @@ function GetData() {
     }
   }
   if(login.true){
-    return <p>welcome</p>
+    return <>
+      <h1>welcome, {login.data.name}</h1>
+      <h1>{login.data.email}</h1>
+    </>
   }
   return (
     <>
