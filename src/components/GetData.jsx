@@ -45,7 +45,7 @@ function GetData() {
         <input type="password" placeholder='Enter your Password' className='input rounded-lg' name='password' />
         <button className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover w-40'>Login</button>
       </form>
-      <p>{error}</p>
+      <p className='text-red-700 text-2xl'>{error}</p>
     </>
   )
 }
