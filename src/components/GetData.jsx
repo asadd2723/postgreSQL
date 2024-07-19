@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 function GetData() {
   const [login, setLogin] = useState(false)
   const [error, setError] = useState('')
-  
+
   console.log(login)
   const loginHandle = async (e)=>{
     e.preventDefault()
@@ -34,9 +34,9 @@ function GetData() {
     }
   }
   if(login.true){
-    return <div className='text-gray-950'>
-      <h1 className='text-4xl'>welcome, {login.data.name}</h1>
-      <h1 className='text-2xl'>{login.data.email}</h1>
+    return <div className=''>
+      <h1 className='text-4xl text-gray-950'>welcome, {login.data.name}</h1>
+      <h1 className='text-2xl text-gray-950'>{login.data.email}</h1>
     </div>
   }
   return (
