@@ -2,7 +2,7 @@ import { sql } from "@vercel/postgres";
 import bcrypt from 'bcrypt'
 
 export default async function(request, response){
-  if(request.method!=="POST"){
+  if(request.method !== "POST"){
     return response.status(405).json({ error: 'Method Not Allowed', message: `Method ${request.method} not allowed.` });
   }
   try {

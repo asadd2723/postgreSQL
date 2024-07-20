@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { MdCancel } from 'react-icons/md'
 
 function GetData() {
   const [login, setLogin] = useState(false)
@@ -40,14 +41,24 @@ function GetData() {
     </div>
   }
   return (
-    <>
-      <form onSubmit={loginHandle} className='max-w-[400px] flex items-center flex-col gap-3'>
-        <input type="email" placeholder='Enter your Email' className='input rounded-lg' name='email' />
-        <input type="password" placeholder='Enter your Password' className='input rounded-lg' name='password' />
-        <button className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover w-40'>Login</button>
-      </form>
-      <p className='text-red-700 text-2xl'>{error}</p>
-    </>
+    <div className='w-full bg-opacity-100  inset-0 backdrop-blur-sm flex justify-center items-center fixed z-10'>
+
+      <div className='flex lg:w-[28%]  flex-col gap-2 transition-all duration-500 text-white'>
+      <button className=' rounded-full place-self-end'><MdCancel size={35}  /></button>
+      <div className='bg-[#FFFFFF] rounded-md pt-8 px-6 md:py-10 md:px-[28px] text-center'>
+        <h1 className='text-xl text-black md:text-3xl font-semibold mb-10 font-body'>Login</h1>
+        <form onSubmit={loginHandle} className='flex items-center flex-col' method='POST'>
+          <input type="email" placeholder='Enter your Email' className='input placeholder:text-gray-300' name='email' />
+          <input type="password" placeholder='Enter your Password' className='input placeholder:text-gray-300 mt-8' name='password' />
+          {/* <h2 className='text-lg text-red-800 mt-3 underline'>error</h2> */}
+          <h2 className='mr-auto font-medium text-[#009578] mt-4 hover:underline'>Forgot Password?</h2>
+          <button className='bg-[#009578] mt-4 w-full py-3 rounded-md text-xl font-medium tracking-wide '>Login</button>
+          <h2 className='text-gray-700 mt-4 font-medium'>Don't have an account? <span className='text-[#009578] font-semibold hover:underline'>SignUp</span></h2>
+        </form>
+      {/* <p className='text-red-700 text-2xl'>{error}</p> */}
+    </div>
+    </div>
+    </div>
   )
 }
 

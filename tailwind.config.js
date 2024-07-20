@@ -6,8 +6,8 @@ export default {
   ],
   theme: {
     fontFamily:{
-      primary: 'Playfair Display',
-      body: 'Work Sans',
+      primary:['Roboto', 'sans-serif'],
+      body:['Roboto', 'sans-serif'],
     },
     extend: {
       colors: {

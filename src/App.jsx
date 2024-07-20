@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import GetData from './components/GetData';
-import SignUp from './components/SignUp';
+import { Link, Outlet } from 'react-router-dom';
+import Home from './components/Home';
 
 
 function App() {
@@ -28,8 +27,8 @@ function App() {
 
   return (
     <>
-      <SignUp />
-      <GetData />
+      <Home />
+      <Outlet/>
     </>
   )
 }
