@@ -8,7 +8,7 @@ export default async function(request, response){
   try {
     const {email, password} = request.body
     if ( !email || !password ) {
-      return response.status(400).json({ error: 'Missing required fields: name, email, password' });
+      return response.status(400).json({ error: 'Missing required fields: Email, Password' });
     }
      // Check if the user exists
     const result = await sql`
@@ -16,7 +16,7 @@ export default async function(request, response){
    `;
 
     if (result.rowCount === 0) {
-     return response.status(401).json({ error: 'Invalid email' });
+     return response.status(401).json({ error: 'Email is not registered. Please SignUp!' });
     }
     const user = result.rows[0];
 
@@ -27,7 +27,7 @@ export default async function(request, response){
     console.log(isPasswordValid);
 
     if (!isPasswordValid) {
-      return response.status(401).json({ error: 'incorrect password' });
+      return response.status(401).json({ error: 'Incorrect password, Please try again' });
     }
 
     return response.status(200).json({ message: 'Login successful', user: { name: user.name, email: user.email } });

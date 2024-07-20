@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { MdCancel } from 'react-icons/md'
+import { FaAngleLeft } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+
 
 function SignUp() {
   const [signIn, setSignIn] = useState(false)
@@ -40,11 +42,10 @@ function SignUp() {
   }
   
   return (
-    <>
       <div className='w-full bg-opacity-100  inset-0 backdrop-blur-sm flex justify-center items-center fixed z-10'>
 
         <div className='flex lg:w-[28%]  flex-col gap-2 transition-all duration-500 text-white'>
-          <button className=' rounded-full place-self-end'><MdCancel size={35}  /></button>
+        <Link to='/' className='px-2 pr-3 py-1 place-self-start flex items-center justify-center rounded-md font-medium text-lg  hover:underline bg-white text-[#009578]'><FaAngleLeft  size={24}  />Home</Link>
           <div className='bg-[#FFFFFF] rounded-md pt-8 px-6 md:py-10 md:px-[28px] text-center'>
             <h1 className='text-xl text-black md:text-3xl font-semibold mb-10 font-body'>SignUp</h1>
             <form onSubmit={handleSignUp} className='flex items-center flex-col' method='POST'>
@@ -53,22 +54,13 @@ function SignUp() {
               <input type="password" placeholder='Enter your Password' className='input placeholder:text-gray-300 mt-7' name='password' />
               {/* <h2 className='text-lg text-red-800 mt-3 mb-[-18px] underline'>{""}</h2> */}
               <button className='bg-[#009578] mt-9 w-full py-3 rounded-md text-xl font-medium tracking-wide '>SignUp</button>
-              <h2 className='text-gray-800  pt-4 font-medium'>Already have an account? <span className='text-[#009578] font-semibold hover:underline'>Login</span></h2>
+              <h2 className='text-gray-800  pt-4 font-medium'>Already have an account? <Link to='/login' className='text-[#009578] font-semibold hover:underline'>Login</Link></h2>
             </form>
       {/* <p className='text-red-700 text-2xl'>{error}</p> */}
           </div>
         </div>
       </div>
-      <form name='contact-us' onSubmit={handleSignUp} className='p-8 space-y-8 w-full max-w-[450px]' method='POST' >
-          <input className='rounded-lg input' type="text" placeholder='Enter your name' 
-      name='name' required/>
-          <input className='rounded-lg input' type="email" placeholder='Enter your email' 
-        name='email' required/>
-        <input type="password" className="input rounded-lg" placeholder='Enter your Password' name='password' required/>
-        <button type='submit' className='rounded-lg btn btn-lg bg-accent hover:bg-accent-hover'>Send Message</button>
-      </form>
-      <p className='text-2xl text-red-950'>{error}</p>
-    </>
+    
   )
 }
 

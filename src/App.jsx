@@ -26,10 +26,10 @@ function App() {
   // };
 
   return (
-    <>
+    <div className='relative'>
       <Home />
       <Outlet/>
-    </>
+    </div>
   )
 }
 
