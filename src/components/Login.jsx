@@ -36,9 +36,9 @@ function Login() {
     }
   }
   if(login.true){
-    return <div className='w-full h-screen bg-[#009578]'>
-      <h1 className='text-4xl text-gray-950'>welcome, {login.data.name}</h1>
-      <h1 className='text-2xl text-gray-950'>{login.data.email}</h1>
+    return <div className='w-full h-screen pt-20 text-center  bg-[#009578]'>
+      <h1 className='text-4xl '>Welcome, <span className='capitalize'>{login.data.name}</span> </h1>
+      <h1 className='text-2xl pt-3'>{login.data.email}</h1>
     </div>
   }
   return (
