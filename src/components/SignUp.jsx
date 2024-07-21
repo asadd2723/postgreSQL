@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 function SignUp() {
   const [signIn, setSignIn] = useState(false)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState('')
 
   const handleSignUp = async (e)=>{
     e.preventDefault()
@@ -52,7 +52,7 @@ function SignUp() {
             <input className=' input placeholder:text-gray-300' type="text" placeholder='Enter your name' name='name' required/>
               <input type="email" placeholder='Enter your Email' className='input placeholder:text-gray-300 mt-7' name='email' />
               <input type="password" placeholder='Enter your Password' className='input placeholder:text-gray-300 mt-7' name='password' />
-              {/* <h2 className='text-lg text-red-800 mt-3 mb-[-18px] underline'>{""}</h2> */}
+              <h2 className='text-lg text-red-800 mt-3 mb-[-18px] underline'>{error}</h2>
               <button className='bg-[#009578] mt-9 w-full py-3 rounded-md text-xl font-medium tracking-wide '>SignUp</button>
               <h2 className='text-gray-800  pt-4 font-medium'>Already have an account? <Link to='/login' className='text-[#009578] font-semibold hover:underline'>Login</Link></h2>
             </form>
