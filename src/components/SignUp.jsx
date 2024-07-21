@@ -44,9 +44,9 @@ function SignUp() {
   return (
       <div className='w-full bg-opacity-100  inset-0 backdrop-blur-sm flex justify-center items-center fixed z-10'>
 
-        <div className='flex lg:w-[28%]  flex-col gap-2 transition-all duration-500 text-white'>
+        <div className='flex w-[89%] sm:w-[440px]   flex-col gap-2 transition-all duration-500 text-white'>
         <Link to='/' className='px-2 pr-3 py-1 place-self-start flex items-center justify-center rounded-md font-medium text-lg  hover:underline bg-white text-[#009578]'><FaAngleLeft  size={24}  />Home</Link>
-          <div className='bg-[#FFFFFF] rounded-md pt-8 px-6 md:py-10 md:px-[28px] text-center'>
+          <div className='bg-[#FFFFFF] rounded-md px-6 py-5 md:py-10 md:px-[28px] text-center'>
             <h1 className='text-xl text-black md:text-3xl font-semibold mb-10 font-body'>SignUp</h1>
             <form onSubmit={handleSignUp} className='flex items-center flex-col' method='POST'>
             <input className=' input placeholder:text-gray-300' type="text" placeholder='Enter your name' name='name' required/>

@@ -33,7 +33,7 @@
     @apply h-[48px];
   }
   .input {
-    @apply bg-white text-gray-800 h-[58px] outline outline-gray-300 outline-1 px-6 w-full font-body text-[18px] rounded-md  focus:outline focus:outline-1 focus:outline-[#009578];
+    @apply bg-white text-gray-800 h-[50px] md:h-[58px] outline outline-gray-300 outline-1  px-4 w-full font-body text-[16px] rounded-lg  focus:outline focus:outline-1 focus:outline-[#009578];
   }
   .textarea {
     @apply bg-secondary resize-none w-full outline-none p-6 rounded-sm h-[200px] focus:outline focus:outline-1 focus:outline-accent;
