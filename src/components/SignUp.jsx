@@ -43,8 +43,8 @@ function SignUp() {
 
   if(signIn.true){
     return <div className='w-full h-screen pt-20 text-center  bg-[#009578]'>
-      <h1 className='text-4xl '>Welcome, <span className='capitalize'>{signIn.data}</span> </h1>
-    </div>
+            <h1 className='text-4xl '>Welcome, <span className='capitalize'>{signIn.data}</span> </h1>
+          </div>
   }
   return (
     <>
