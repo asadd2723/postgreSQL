@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 import { FaAngleLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import Loading from './Loading'
 
 
 function SignUp() {
   const [signIn, setSignIn] = useState(false)
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSignUp = async (e)=>{
     e.preventDefault()
     const form = e.target
+    setLoading(true)
     const formData = {
       name: form.name.value,
       email: form.email.value,
@@ -26,6 +29,7 @@ function SignUp() {
       })
       .then((res)=>res.json())
       .then((data)=>{
+        setLoading(false)
         if(data.message){
           return setSignIn({true:true,data: data.data})
         }else{
@@ -42,7 +46,8 @@ function SignUp() {
   }
   
   return (
-      <div className='w-full bg-opacity-100  inset-0 backdrop-blur-sm flex justify-center items-center fixed z-10'>
+    <>
+      <div className='w-full inset-0 backdrop-blur-[2px] flex justify-center items-center fixed z-10'>
 
         <div className='flex w-[89%] sm:w-[440px]   flex-col gap-2 transition-all duration-500 text-white'>
         <Link to='/' className='px-2 pr-3 py-1 place-self-start flex items-center justify-center rounded-md font-medium text-lg  hover:underline bg-white text-[#009578]'><FaAngleLeft  size={24}  />Home</Link>
@@ -60,6 +65,8 @@ function SignUp() {
           </div>
         </div>
       </div>
+      <Loading loading={loading}/>
+    </>
     
   )
 }
